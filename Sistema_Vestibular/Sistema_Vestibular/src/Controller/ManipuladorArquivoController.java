@@ -12,10 +12,9 @@ public class ManipuladorArquivoController {
 	
 	ListaCandidatosController candidatos = new ListaCandidatosController();
 	
-	public void gravarInscricao(String nome, String rg, int cpf, int idade, String nomeDoCurso, int periodo)
+	public void gravar(String linha, String path)
 			throws IOException {
-		BufferedWriter bw = new BufferedWriter(new FileWriter("candidatos.txt"));
-		String linha = nome + ";" + rg + ";" + cpf + ";" + idade + ";" + nomeDoCurso + ";" + periodo;
+		BufferedWriter bw = new BufferedWriter(new FileWriter(path));
 		bw.append(linha + "\n");
 		bw.close();
 	}

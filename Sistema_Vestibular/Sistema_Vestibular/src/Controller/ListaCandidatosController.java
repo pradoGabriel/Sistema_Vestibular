@@ -5,12 +5,13 @@ import Model.CandidatoModel;
 public class ListaCandidatosController {
 
 	private CandidatoModel inicio;
-
+	static int count;
 	public ListaCandidatosController() {
+		count = 0;
 		inicio = null;
 	}
 
-	public void adicionaFinal(String nome, String rg, int cpf, int idade) {
+	public synchronized void adicionaFinal(String nome, String rg, int cpf, int idade) {
 		if (inicio == null) {
 			CandidatoModel candidato = new CandidatoModel(nome, rg, cpf, idade);
 			inicio = candidato;
@@ -22,15 +23,17 @@ public class ListaCandidatosController {
 			CandidatoModel candidato = new CandidatoModel(nome, rg, cpf, idade);
 			aux.setProx(candidato);
 		}
+		count++;
 	}
 
-	public void AdicionaInicio(String nome, String rg, int cpf, int idade) {
+	public synchronized void AdicionaInicio(String nome, String rg, int cpf, int idade) {
 		CandidatoModel candidato = new CandidatoModel(nome, rg, cpf, idade);
 		candidato.setProx(inicio);
 		inicio = candidato;
+		count++;
 	}
 
-	public String RemoveFinal() {
+	public synchronized String RemoveFinal() {
 		String r = null;
 		if (inicio == null) {
 			System.out.println("Lista Vazia");
@@ -50,34 +53,36 @@ public class ListaCandidatosController {
 				r = aux1.getNome();
 				aux2.setProx(null);
 			}
+			count--;
 		}
 		return r;
 	}
 
-	public void escolhePosicao(String nome, String rg, int cpf, int idade, int pos) {
+	public synchronized void escolhePosicao(String nome, String rg, int cpf, int idade, int pos) {
 		CandidatoModel CandidatoModel = new CandidatoModel(nome, rg, cpf, idade);
 
 		if (pos == 1) {
 			AdicionaInicio(nome, rg, cpf, idade);
 		} else {
 			CandidatoModel aux = inicio;
-			int count = 1;
+			int cont = 1;
 
 			while (aux.getProx() != null && count < pos - 1) {
 				aux = aux.getProx();
-				count++;
+				cont++;
 			}
 
-			if (count == pos - 1) {
+			if (cont == pos - 1) {
 				CandidatoModel.setProx(aux.getProx());
 				aux.setProx(CandidatoModel);
+				count++;
 			} else {
 				System.out.println("Posição inválida!");
 			}
 		}
 	}
 
-	public String escolheRemove(int pos) {
+	public synchronized String escolheRemove(int pos) {
 		String e = null;
 		int i = 1;
 		CandidatoModel aux = inicio;
@@ -111,18 +116,20 @@ public class ListaCandidatosController {
 				}
 				e = aux.getNome();
 				aux2.setProx(aux.getProx());
+				count--;
 				return e;
 			}
 		}
 	}
 
-	public String RemoveInicio() {
+	public synchronized String RemoveInicio() {
 		String r = null;
 		if (inicio == null) {
 			System.out.println("Lista Vazia");
 		} else {
 			r = inicio.getNome();
 			inicio = inicio.getProx();
+			count--;
 		}
 		return r;
 	}
@@ -137,4 +144,19 @@ public class ListaCandidatosController {
 		return r;
 	}
 
+	public void ordenarNome() {
+		CandidatoModel aux = inicio;
+		String candidatos[] = new String [count];
+		int contador = 0;
+		while (contador < count) {
+			candidatos[contador] = aux.getNome();
+			aux = aux.getProx();
+			contador++;
+		}
+		ordenarCandidatos(candidatos);
+	}
+
+	public void ordenarCandidatos(String [] candidatos){
+		//metodo de ordenação quicksort
+	}
 }
