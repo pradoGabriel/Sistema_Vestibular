@@ -14,12 +14,12 @@ public class ManipuladorArquivoController {
 	
 	public void gravar(String linha, String path)
 			throws IOException {
-		BufferedWriter bw = new BufferedWriter(new FileWriter(path));
+		BufferedWriter bw = new BufferedWriter(new FileWriter(path),true);
 		bw.append(linha + "\n");
 		bw.close();
 	}
 
-	public void lerInscricao () throws IOException {
+	public void ler () throws IOException {
 		BufferedReader bf = new BufferedReader (new FileReader ("candidatos.txt"));
 		String linha = "";
 		while (true) {
@@ -27,7 +27,7 @@ public class ManipuladorArquivoController {
 				String array[] = new String[6];
 				array = linha.split(";");
 				candidatos.adicionaFinal(array[0], array[1], Integer.parseInt(array[2]), Integer.parseInt(array[3]));		
-			} else 
+			} else
 				break;
 			linha = bf.readLine();
 		}
