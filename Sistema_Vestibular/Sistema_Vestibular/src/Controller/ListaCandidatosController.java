@@ -1,11 +1,13 @@
 package Controller;
 
+import Interface.ILista;
 import Model.CandidatoModel;
 
-public class ListaCandidatosController {
+public class ListaCandidatosController implements ILista {
 
 	private CandidatoModel inicio;
 	static int count;
+
 	public ListaCandidatosController() {
 		count = 0;
 		inicio = null;
@@ -144,9 +146,9 @@ public class ListaCandidatosController {
 		return r;
 	}
 
-	public void ordenarNome() {
+	public void ordenarPorNome() {
 		CandidatoModel aux = inicio;
-		String candidatos[] = new String [count];
+		String candidatos[] = new String[count];
 		int contador = 0;
 		while (contador < count) {
 			candidatos[contador] = aux.getNome();
@@ -156,7 +158,48 @@ public class ListaCandidatosController {
 		ordenarCandidatos(candidatos);
 	}
 
-	public void ordenarCandidatos(String [] candidatos){
-		//metodo de ordenação quicksort
+	public void ordenarCandidatos(String[] vet) {
+		// metodo de ordenação quicksort
+		quickSort(vet, 0, vet.length - 1);
+		int num = 0;
+		System.out.println("Lista de candidatos ordenada por nome: ");
+		for (String candidato : vet) {
+			num++;
+			System.out.println(num + "- " + candidato);
+		}
+	}
+
+	private static void quickSort(String[] vet, int ini, int fim) {
+		if (ini < fim) {
+			int divisao = particao(vet, ini, fim);
+			quickSort(vet, ini, divisao - 1);
+			quickSort(vet, divisao + 1, fim);
+		}
+
+	}
+
+	private static int particao(String[] vet, int ini, int fim) {
+		int i = ini + 1, f = fim;
+		String aux;
+		String pivo = vet[ini];
+		while (i <= f) {
+			while (i <= fim && vet[i].compareToIgnoreCase(pivo) <= 0)
+				i++;
+			while (pivo.compareToIgnoreCase(vet[f]) < 0)
+				--f;
+			if (i < f) {
+				aux = vet[i];
+				vet[i] = vet[f];
+				vet[f] = aux;
+				++i;
+				--f;
+			}
+		}
+		if (ini != f) {
+			vet[ini] = vet[f];
+			vet[f] = pivo;
+		}
+
+		return f;
 	}
 }
