@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 import Controller.ManipuladorArquivoController;
 
-public class InscricaoController {
+public class InscricaoView {
 
 	private String nome;
 	private String rg;
