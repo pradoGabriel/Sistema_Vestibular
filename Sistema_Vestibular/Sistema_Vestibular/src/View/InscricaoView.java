@@ -1,4 +1,4 @@
-package Controller;
+package View;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -34,7 +34,7 @@ public class InscricaoView {
 		periodo = ler.nextInt();
 
 		String linha = nome + ";" + rg + ";" + cpf + ";" + idade + ";" + nomeDoCurso + ";" + periodo;
-
+		ler.close();
 		ManipuladorArquivoController mp = new ManipuladorArquivoController();
 		mp.gravar(linha, "candidatos.txt");
 	}

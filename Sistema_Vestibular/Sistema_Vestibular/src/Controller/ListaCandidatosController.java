@@ -34,8 +34,8 @@ public class ListaCandidatosController implements ILista {
 		inicio = candidato;
 		count++;
 	}
-
-	public synchronized String RemoveFinal() {
+	@Override
+	public String RemoveFinal() {
 		String r = null;
 		if (inicio == null) {
 			System.out.println("Lista Vazia");
@@ -123,8 +123,8 @@ public class ListaCandidatosController implements ILista {
 			}
 		}
 	}
-
-	public synchronized String RemoveInicio() {
+	@Override
+	public String RemoveInicio() {
 		String r = null;
 		if (inicio == null) {
 			System.out.println("Lista Vazia");
