@@ -1,9 +1,8 @@
 package Controller;
 
-import Interface.ILista;
 import Model.CandidatoModel;
 
-public class ListaCandidatosController implements ILista {
+public class ListaCandidatosController{
 
 	private CandidatoModel inicio;
 	static int count;
@@ -34,8 +33,8 @@ public class ListaCandidatosController implements ILista {
 		inicio = candidato;
 		count++;
 	}
-	@Override
-	public String RemoveFinal() {
+
+	public synchronized String RemoveFinal() {
 		String r = null;
 		if (inicio == null) {
 			System.out.println("Lista Vazia");
@@ -123,8 +122,8 @@ public class ListaCandidatosController implements ILista {
 			}
 		}
 	}
-	@Override
-	public String RemoveInicio() {
+
+	public synchronized String RemoveInicio() {
 		String r = null;
 		if (inicio == null) {
 			System.out.println("Lista Vazia");
