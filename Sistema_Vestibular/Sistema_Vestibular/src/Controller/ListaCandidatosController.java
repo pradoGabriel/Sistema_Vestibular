@@ -1,9 +1,8 @@
 package Controller;
 
-import Interface.ILista;
 import Model.CandidatoModel;
 
-public class ListaCandidatosController implements ILista {
+public class ListaCandidatosController{
 
 	private CandidatoModel inicio;
 	static int count;
