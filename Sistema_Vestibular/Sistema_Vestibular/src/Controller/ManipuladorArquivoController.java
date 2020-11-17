@@ -20,6 +20,7 @@ public class ManipuladorArquivoController {
 		BufferedReader bf = new BufferedReader(new FileReader("candidatos.txt"));
 		String linha = null;
 		while (true) {
+			linha = bf.readLine();
 			if (linha != null) {
 				String array[] = new String[6];
 				array = linha.split(";");
@@ -28,7 +29,6 @@ public class ManipuladorArquivoController {
 				System.out.println("Sem registros.");
 				break;
 			}
-			linha = bf.readLine();
 		}
 		bf.close();
 

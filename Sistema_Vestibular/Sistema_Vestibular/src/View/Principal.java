@@ -3,11 +3,13 @@ package View;
 import java.io.IOException;
 import java.util.Scanner;
 import View.InscricaoView;
+import View.GestaoView;
 
 public class Principal {
 
 	public static void main(String[] args) throws IOException {
-
+		InscricaoView iv = new InscricaoView();
+		GestaoView gv = new GestaoView();
 		Scanner ler = new Scanner(System.in);
 		System.out.println("***********************************************************************\n"
 				+ "Olá, seja bem-vindo ao sistema de inscrição do Vestibular FATEC!!\n"
@@ -22,10 +24,10 @@ public class Principal {
 			opc = ler.nextInt();
 			switch (opc) {
 				case 1:
-					InscricaoView iv = new InscricaoView();
 					iv.gravarInscricao();
 					break;
 				case 2:
+					gv.menuGestao();
 					break;
 				case 9:
 					System.out.println("PROGRAMA ENCERRADO!");
