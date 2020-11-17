@@ -1,7 +1,6 @@
 package Controller;
 
 import java.io.BufferedWriter;
-
 import java.io.FileReader;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,9 +9,10 @@ import java.io.FileWriter;
 public class ManipuladorArquivoController {
 
 	public void gravar(String linha, String path) throws IOException {
-		BufferedWriter bw = new BufferedWriter(new FileWriter(path));
+		BufferedWriter bw = new BufferedWriter(new FileWriter(path, true));
 		bw.append(linha + "\n");
 		bw.close();
+		System.out.println("Registro gravado com sucesso!");
 	}
 
 	public ListaCandidatosController lerCandidatos() throws IOException {

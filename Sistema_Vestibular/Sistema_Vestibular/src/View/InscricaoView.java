@@ -14,9 +14,9 @@ public class InscricaoView {
 	private int periodo;
 
 	public void gravarInscricao() throws IOException {
-		System.out.println("************************************************************/n"
-				+ "         Seja bem-vindo(a) a área de inscrição!             /n"
-				+ "         Vamos precisar de algumas informações!             /n"
+		System.out.println("************************************************************\n"
+				+ "         Seja bem-vindo(a) a área de inscrição!             \n"
+				+ "         Vamos precisar de algumas informações!             \n"
 				+ "************************************************************");
 		// Recebendo dados do Candidato
 		Scanner ler = new Scanner(System.in);
@@ -29,12 +29,12 @@ public class InscricaoView {
 		System.out.println("Idade: ");
 		idade = ler.nextInt();
 		System.out.println("Curso: ");
-		nomeDoCurso = ler.nextLine();
+		nomeDoCurso = ler.next();
 		System.out.println("Per�odo (1-Manh� 2-Tarde 3-Noite: ");
 		periodo = ler.nextInt();
 
 		String linha = nome + ";" + rg + ";" + cpf + ";" + idade + ";" + nomeDoCurso + ";" + periodo;
-		ler.close();
+
 		ManipuladorArquivoController mp = new ManipuladorArquivoController();
 		mp.gravar(linha, "candidatos.txt");
 	}
