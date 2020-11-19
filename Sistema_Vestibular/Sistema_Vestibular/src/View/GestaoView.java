@@ -4,11 +4,14 @@ import java.io.IOException;
 import java.util.Scanner;
 import Controller.ManipuladorArquivoController;
 import Controller.ListaCandidatosController;
+import View.CampusInscritoView;
+import View.InscricaoView;
 
 public class GestaoView {
     public void menuGestao() throws IOException {
         ManipuladorArquivoController mp = new ManipuladorArquivoController();
-
+        CampusGestaoView campusGestao = new CampusGestaoView();
+        CampusInscritoView campusInscrito = new CampusInscritoView();
         ListaCandidatosController listaCandidatos = new ListaCandidatosController();
         listaCandidatos = mp.lerCandidatos();
         Scanner ler = new Scanner(System.in);
@@ -19,7 +22,7 @@ public class GestaoView {
         int opc = 0;
         while (opc != 9) {
             System.out.println("Digite o número de uma das opções abaixo: \n" + "1- Visualizar inscritos. \n"
-                    + "2- Ordenar inscritos por nome.\n" + "9- Voltar ao inicio.");
+                    + "2- Ordenar inscritos por nome.\n" + "3- Gerir campus. \n" + "4- Visualizar campus.\n" + "9- Voltar ao inicio.");
 
             opc = ler.nextInt();
             switch (opc) {
@@ -31,6 +34,11 @@ public class GestaoView {
                 case 2:
                     listaCandidatos.ordenarPorNome();
                     break;
+                case 3:
+                    campusGestao.menuCampus();
+                    break;
+                case 4: 
+                    campusInscrito.menuCampusIncrito();
                 case 9:
                     break;
                 default:
