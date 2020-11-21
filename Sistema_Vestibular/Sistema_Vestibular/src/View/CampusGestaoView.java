@@ -6,12 +6,12 @@ import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 import Controller.ListaCampusController;
-import Controller.ReaderWriteCampusController;
+import Controller.ManipuladorArquivoController;
 
 public class CampusGestaoView {
 	public void menuCampus() throws IOException {
 		ListaCampusController campus = new ListaCampusController();
-		ReaderWriteCampusController rw = new ReaderWriteCampusController();
+		ManipuladorArquivoController rw = new ManipuladorArquivoController();
 		Scanner ler = new Scanner(System.in);
 		int op = 0, pos = 0;
 		String nomeCampus = "";

@@ -18,7 +18,7 @@ public class GestaoView {
         System.out.println("***********************************************************************\n"
                 + "Olá, seja bem-vindo a área de gestão de Candidatos.!!\n"
                 + "***********************************************************************");
-
+        String candidatos = null;
         int opc = 0;
         while (opc != 9) {
             System.out.println("Digite o número de uma das opções abaixo: \n" + "1- Visualizar inscritos. \n"
@@ -27,12 +27,17 @@ public class GestaoView {
             opc = ler.nextInt();
             switch (opc) {
                 case 1:
-                    String candidatos = null;
                     candidatos = listaCandidatos.percorre();
+                    System.out.println("***********************************************************************\n");
                     System.out.println(candidatos);
+                    System.out.println("***********************************************************************\n");
                     break;
                 case 2:
-                    listaCandidatos.ordenarPorNome();
+                    listaCandidatos = listaCandidatos.ordenarPorNome();
+                    candidatos = listaCandidatos.percorre();
+                    System.out.println("***********************************************************************\n");
+                    System.out.println(candidatos);
+                    System.out.println("***********************************************************************\n");
                     break;
                 case 3:
                     campusGestao.menuCampus();
