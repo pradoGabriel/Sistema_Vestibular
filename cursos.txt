@@ -1,0 +1,10 @@
+Nao Sei Ainda;2;3;4
+fernando;1;2;3
+woo;32;2;40
+jabuticaba;1;2;3
+logistica;2;20;15
+ads;3;8;40
+naoseiainda;4;5;6
+testandoapenas;1;2;3
+teste;12;15;40
+Analise de Dados;2;3;4

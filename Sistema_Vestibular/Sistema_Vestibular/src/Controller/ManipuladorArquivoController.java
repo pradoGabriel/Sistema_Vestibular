@@ -61,4 +61,38 @@ public class ManipuladorArquivoController {
 		}
 		ler.close();
 	}
+
+	public void gravaCursos(ListaCursosController lista) throws Exception {
+		BufferedWriter bw2 = new BufferedWriter(new FileWriter("cursos.txt", false));
+		BufferedWriter bw = new BufferedWriter(new FileWriter("cursos.txt", true));
+		
+		String gravacao = lista.geraVetor();
+		String vet[] = gravacao.split("/");
+		int tamanho = vet.length;
+		bw2.append("");
+		for (int i = 0; i < tamanho; i++) {
+			bw.append(vet[i]+ "\n");
+		}
+		bw.close();
+	}
+
+	public ListaCursosController lerCursos() throws IOException {
+		ListaCursosController lista = new ListaCursosController();
+		BufferedReader bf = new BufferedReader(new FileReader("cursos.txt"));
+		String linha = "";
+		while (true) {
+			linha = bf.readLine();
+			if (linha != null) {
+				String array[] = new String[4];
+				array = linha.split(";");
+				lista.adicionaFinal(array[0], Integer.parseInt(array[1]), Integer.parseInt(array[2]),
+						Integer.parseInt(array[3]));
+			} else {
+				break;
+			}
+		}
+		bf.close();
+
+		return lista;
+	}
 }
