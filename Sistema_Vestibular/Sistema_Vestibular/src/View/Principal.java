@@ -1,13 +1,11 @@
 package View;
 
-import java.io.IOException;
 import java.util.Scanner;
-import View.InscricaoView;
-import View.GestaoView;
 
 public class Principal {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws Exception {
+		CursoGestaoView cgv = new CursoGestaoView();
 		InscricaoView iv = new InscricaoView();
 		GestaoView gv = new GestaoView();
 		Scanner ler = new Scanner(System.in);
@@ -19,7 +17,8 @@ public class Principal {
 		while (opc != 9) {
 			System.out.println("Digite o número de uma das opções abaixo: \n" 
 					+ "1- Sou candidato e quero me inscrever!\n"
-					+ "2- Sou membro do CPS/CRA!\n" + "9- Finalizar programa!");
+					+ "2- Sou membro do CPS/CRA!\n"
+					+ "9- Finalizar programa!");
 
 			opc = ler.nextInt();
 			switch (opc) {
