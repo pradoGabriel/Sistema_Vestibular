@@ -15,10 +15,9 @@ public class Principal {
 
 		int opc = 0;
 		while (opc != 9) {
-			System.out.println("Digite o número de uma das opções abaixo: \n" 
-					+ "1- Sou candidato e quero me inscrever!\n"
-					+ "2- Sou membro do CPS/CRA!\n"
-					+ "9- Finalizar programa!");
+			System.out
+					.println("Digite o número de uma das opções abaixo: \n" + "1- Sou candidato e quero me inscrever!\n"
+							+ "2- Sou membro do CPS/CRA!\n" + "9- Finalizar programa!");
 
 			opc = ler.nextInt();
 			switch (opc) {

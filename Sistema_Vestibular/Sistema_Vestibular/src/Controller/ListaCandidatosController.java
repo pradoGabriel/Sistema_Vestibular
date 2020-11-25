@@ -13,7 +13,7 @@ public class ListaCandidatosController{
 		inicio = null;
 	}
 
-	public synchronized void adicionaFinal(String nome, String rg, int cpf, int idade) {
+	public synchronized void adicionaFinal(String nome, String rg, String cpf, int idade) {
 		if (inicio == null) {
 			CandidatoModel candidato = new CandidatoModel(nome, rg, cpf, idade);
 			inicio = candidato;

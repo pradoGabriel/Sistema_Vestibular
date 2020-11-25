@@ -17,11 +17,11 @@ public class CampusGestaoView {
 		String nomeCampus = "";
 		rw.lerCampus(campus);
 		System.out.println("***********************************************************************\n"
-				+ "Ol�, seja bem-vindo a �rea de Campus de Faculdades.!!\n"
+				+ "OlA, seja bem-vindo a area Gestao dos Campus das Faculdades.!!\n"
 				+ "***********************************************************************");
 		while (op != 9) {
 			System.out.print("1-Adiciona Nome de Campus\n2-Busca de nomes de Campus em ordem de A-Z \n"
-					+ "3-Gravar Lista \n4-Remove Campus na Posi�ao desejada \n7-Exibir lista \n9-Sair");
+					+ "3-Gravar Lista \n4-Remove Campus na Posicao desejada \n7-Exibir lista \n9-Sair");
 			op = ler.nextInt();
 			switch (op) {
 				case 1:
@@ -50,10 +50,10 @@ public class CampusGestaoView {
 					break;
 
 				case 4:
-					System.out.println("Informe a Posi��o que gostaria de remover");
+					System.out.println("Informe a Posicao que gostaria de remover");
 					pos = ler.nextInt();
 					String r = campus.escolheRemove(pos);
-					System.out.println("O elemento removido da posicao:" + pos + "� : " + r);
+					System.out.println("O elemento removido da posicao:" + pos + " e : " + r);
 
 					break;
 

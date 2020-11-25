@@ -17,13 +17,14 @@ public class CampusInscritoView {
 		String nomeCampus = "";
 		rw.lerCampus(campus);
 		System.out.println("***********************************************************************\n"
-				+ "Ol�, seja bem-vindo a �rea de Campus de Faculdades.!!\n"
+				+ "OlA, seja bem-vindo a area de Campus das Faculdades.!!\n"
 				+ "***********************************************************************");
 		while (op != 9) {
-			System.out.print("1 - Trazer nomes em ordem de A-Z \n");
+			System.out.print("1 - Trazer nomes em ordem de A-Z \n9 - Caso ja saiba o Campus sair e continuar inscri�ao");
 			op = ler.nextInt();
 			switch (op) {
 				case 1:
+					System.out.println("Lista de Campus Disponiveis: ");
 					String tVet[] = campus.inseriVet();
 					String org[] = campus.mergeSort(tVet, 0, (tVet.length) - 1);
 					campus.organizaLista(org);
@@ -39,11 +40,12 @@ public class CampusInscritoView {
 					System.out.print("\nLista:" + campus.percorre());
 					System.out.print("\n<------------------------------------->\n");
 					break;
+				
 				case 9:
 					System.out.println("Saindo");
 					break;
 				default:
-					JOptionPane.showMessageDialog(null, "Valor inv�lido");
+					JOptionPane.showMessageDialog(null, "Valor invalido");
 			}
 		}
 	}

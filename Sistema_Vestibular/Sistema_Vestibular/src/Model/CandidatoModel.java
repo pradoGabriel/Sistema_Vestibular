@@ -4,13 +4,13 @@ public class CandidatoModel {
 	// Propriedades
 	private String nome;
 	private String rg;
-	private int cpf;
+	private String cpf;
 	private int idade;
 	private CandidatoModel prox;
 
 	// Construtor
 
-	public CandidatoModel(String nome, String rg, int cpf, int idade) {
+	public CandidatoModel(String nome, String rg, String cpf, int idade) {
 		super();
 		this.nome = nome;
 		this.rg = rg;
@@ -35,11 +35,11 @@ public class CandidatoModel {
 		this.rg = rg;
 	}
 
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 
@@ -57,5 +57,11 @@ public class CandidatoModel {
 
 	public void setProx(CandidatoModel prox) {
 		this.prox = prox;
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Nome: "+nome+"\nCpf :"+cpf;
 	}
 }

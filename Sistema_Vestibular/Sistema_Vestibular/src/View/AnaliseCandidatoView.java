@@ -52,5 +52,4 @@ public class AnaliseCandidatoView {
 	    mp.gravar(linha, "situacao.txt");
 	    
 	}
-	
 }
