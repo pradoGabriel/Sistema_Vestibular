@@ -9,6 +9,14 @@ public class CursoModel {
 	private CursoModel prox;
 	private CursoModel anterior;
 
+	public CursoModel(String nomeDoCurso, int periodo, int quantSemestres, int vagas) {
+		super();
+		this.nomeDoCurso = nomeDoCurso;
+		this.periodo = periodo;
+		this.quantidadeSemestres = quantSemestres;
+		this.vagas = vagas;
+	}
+
 	// Encapsulamento
 	public String getNomeDoCurso() {
 		return nomeDoCurso;
@@ -57,5 +65,4 @@ public class CursoModel {
 	public void setAnterior(CursoModel anterior) {
 		this.anterior = anterior;
 	}
-
 }

@@ -58,4 +58,10 @@ public class CandidatoModel {
 	public void setProx(CandidatoModel prox) {
 		this.prox = prox;
 	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return "Nome: "+nome+"\nCpf :"+cpf;
+	}
 }
