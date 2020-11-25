@@ -73,9 +73,7 @@ public class ListaCandidatosController{
 	public ListaCandidatosController ordenarCandidatos(CandidatoModel[] vet) {
 		// metodo de ordenação quicksort
 		quickSort(vet, 0, vet.length - 1);
-		//int num = 0;
 		System.out.println("Lista de candidatos ordenada por nome: ");
-		//System.out.println(percorre());
 		ListaCandidatosController listaOrdenada = new ListaCandidatosController();
 		for (CandidatoModel candidato : vet) {
 			listaOrdenada.adicionaFinal(candidato.getNome(), candidato.getRg(), candidato.getCpf(), candidato.getIdade());
