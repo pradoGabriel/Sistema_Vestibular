@@ -40,7 +40,7 @@ public class ListaCampusController {
 		}
 	}
 	
-	// Escolhe uma posição para adicionar um elemento na lista
+	// Escolhe uma posiï¿½ï¿½o para adicionar um elemento na lista
 	public void escolhePosicao(String nomeCampus , int pos){
 		CampusModel CampusModelSeg = new CampusModel(nomeCampus);
     if(pos==1){           
@@ -57,7 +57,7 @@ public class ListaCampusController {
             aux.setProx(CampusModelSeg);
         }
         else{
-            System.out.println("Posição Inválida!");
+            System.out.println("Posiï¿½ï¿½o Invï¿½lida!");
         }            
     	}
 	}
@@ -138,7 +138,7 @@ public class ListaCampusController {
 		}
 	}
 	
-	// realiza a divisão dos vetores de forma recursiva para depois organizalos 
+	// realiza a divisï¿½o dos vetores de forma recursiva para depois organizalos 
 	public static String [] mergeSort(String lista[], int inicio,
 			int fim){
 
@@ -152,7 +152,7 @@ public class ListaCampusController {
 		return lista;
 	}	
 	
-	//realiza a intercalaçao dos vetore para organização
+	//realiza a intercalaï¿½ao dos vetore para organizaï¿½ï¿½o
 	public static void intercalar(String lista[], int inicioA, int fimA,
 			int inicioB, int fimB){
 		int i1 = inicioA; 

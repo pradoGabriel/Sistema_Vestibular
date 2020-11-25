@@ -1,5 +1,6 @@
 package Controller;
 
+import Model.CampusModel;
 import Model.CandidatoModel;
 
 public class ListaCandidatosController{
@@ -25,6 +26,24 @@ public class ListaCandidatosController{
 			aux.setProx(candidato);
 		}
 		count++;
+	}
+	
+	
+	
+	public synchronized int tamanho(){
+		return count;
+	}
+	
+	public CandidatoModel[] toVet() {
+		CandidatoModel aux = inicio;
+		CandidatoModel candidatos[] = new CandidatoModel[count];
+		int contador = 0;
+		while (contador < count) {
+			candidatos[contador] = aux;
+			aux = aux.getProx();
+			contador++;
+		}
+		return candidatos;
 	}
 
 	public String percorre() {
