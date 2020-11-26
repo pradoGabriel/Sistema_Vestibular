@@ -2,14 +2,14 @@ package Model;
 
 public class SituacaoModel {
 	private String nome;
-	private int cpf;
+	private String cpf;
 	private int resultado;
 	private String detalhes;
 	
 
 	private SituacaoModel prox;
 
-	public SituacaoModel(String nome, int cpf, int resultado, String detalhes) {
+	public SituacaoModel(String nome, String cpf, int resultado, String detalhes) {
 		this.nome = nome;
 		this.cpf = cpf;
 		this.resultado = resultado;
@@ -32,11 +32,11 @@ public class SituacaoModel {
 		this.nome = nome;
 	}
 
-	public int getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 
-	public void setCpf(int cpf) {
+	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
 

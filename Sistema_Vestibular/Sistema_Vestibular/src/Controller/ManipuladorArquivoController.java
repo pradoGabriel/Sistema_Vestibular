@@ -59,7 +59,7 @@ public class ManipuladorArquivoController {
 				aux = true;
 				String array[] = new String[4];
 				array = linha.split(";");
-				lista.adicionaFinal(array[0], Integer.parseInt(array[1]), Integer.parseInt(array[2]), array[3]);
+				lista.adicionaFinal(array[0], array[1], Integer.parseInt(array[2]), array[3]);
 			} else {
 				if (aux == false) {
 					System.out.println("Sem registros.");

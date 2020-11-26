@@ -13,7 +13,7 @@ public class ListaSituacaoController {
 		inicio = null;
 	}
 
-	public void adicionaFinal(String nome, int cpf, int resultado, String detalhes) {
+	public void adicionaFinal(String nome, String cpf, int resultado, String detalhes) {
 		if (inicio == null) {
 			SituacaoModel situacao = new SituacaoModel(nome, cpf, resultado, detalhes);
 			inicio = situacao;
