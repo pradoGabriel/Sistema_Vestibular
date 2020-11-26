@@ -1,10 +1,8 @@
 package View;
 
-import java.util.Arrays;
 import java.util.Scanner;
 import Controller.ManipuladorArquivoController;
 import Model.CursoModel;
-import Controller.ListaCandidatosController;
 import Controller.ListaCursosController;
 
 public class CursoGestaoView {
@@ -15,10 +13,10 @@ public class CursoGestaoView {
 
     public void menuCursoGestao() throws Exception {
         ListaCursosController listaCursos = new ListaCursosController();
-        ListaCandidatosController listacandid = new ListaCandidatosController();
         ManipuladorArquivoController manipArqContr = new ManipuladorArquivoController();
         listaCursos = manipArqContr.lerCursos();
         Scanner ler = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
         System.out.println("***********************************************************************\n"
                 + "Olá, seja bem-vindo a área de gestão de Cursos.!!\n"
                 + "***********************************************************************");
@@ -73,7 +71,7 @@ public class CursoGestaoView {
                     System.out.println("PREENCHA OS CAMPOS CITADOS:\nLista dos cursos:");
                     listaCursos.exibeLista();
                     System.out.println("\nEscreva o nome do curso a ser removido:");
-                    listaCursos.removeCurso(ler.nextLine());
+                    listaCursos.removeCurso(scan.nextLine());
                     System.out.println("<==========================================================>");
                     manipArqContr.gravaCursos(listaCursos);
                     break;
@@ -91,11 +89,12 @@ public class CursoGestaoView {
                     System.out.println("<==========================================================>");
                     break;
                 case 8:
-                Scanner scan = new Scanner(System.in);
                 System.out.println("<==========================================================>");
                 System.out.print("\nEscreva o nome do curso a ser buscado:\n");
                 CursoModel cm = listaCursos.buscaCurso(scan.nextLine());
-                System.out.print("\nCurso encontrado!\nDADOS:\nNome do curso:"+ cm.getNomeDoCurso()+ "\nPeriodo: "+ cm.getPeriodo()+ "\nQuantidade de semestres: "+ cm.getQuantidadeSemestres()+ "\nVagas: "+ cm.getVagas());
+                if(cm!=null){
+                    System.out.print("\nCurso encontrado!\nDADOS:\nNome do curso:"+ cm.getNomeDoCurso()+ "\nPeriodo: "+ cm.getPeriodo()+ "\nQuantidade de semestres: "+ cm.getQuantidadeSemestres()+ "\nVagas: "+ cm.getVagas());
+                }
                 System.out.println("<==========================================================>");
                     break;
                 case 9:
@@ -117,19 +116,19 @@ public class CursoGestaoView {
     }
 
     private String obterInputCurso() {
+        Scanner input = new Scanner(System.in);
         String dados = null;
-        Scanner ler = new Scanner(System.in);
         System.out.println("Nome do curso:");
-        nomeDoCurso = ler.nextLine();
+        nomeDoCurso = input.nextLine();
         dados = nomeDoCurso;
-        System.out.println("\nPeriodo (int):");
-        periodo = ler.nextInt();
+        System.out.println("\nPeriodo (1-Manhã, 2-Tarde, 3-Noite):");
+        periodo = input.nextInt();
         dados = dados + ";" + periodo;
-        System.out.println("\nQuantidade de semestres (int):");
-        quantidadeSemestres = ler.nextInt();
+        System.out.println("\nQuantidade de semestres:");
+        quantidadeSemestres = input.nextInt();
         dados = dados + ";" + quantidadeSemestres;
-        System.out.println("\nQuantidade de vagas (int):");
-        vagas = ler.nextInt();
+        System.out.println("\nQuantidade de vagas:");
+        vagas = input.nextInt();
         dados = dados + ";" + vagas;
         return dados;
     }

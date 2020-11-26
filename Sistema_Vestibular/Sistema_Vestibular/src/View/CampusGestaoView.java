@@ -3,8 +3,6 @@ package View;
 import java.io.IOException;
 import java.util.Scanner;
 
-import javax.swing.JOptionPane;
-
 import Controller.ListaCampusController;
 import Controller.ManipuladorArquivoController;
 

@@ -1,7 +1,6 @@
 package Controller;
 
 import Model.CampusModel;
-import Model.CandidatoModel;
 
 public class ListaCampusController {
 
@@ -38,25 +37,27 @@ public class ListaCampusController {
 			return FinalInserir(aux.getProx());
 		}
 	}
-
+	
 	// Escolhe uma posi��o para adicionar um elemento na lista
-	public void escolhePosicao(String nomeCampus, int pos) {
+	public void escolhePosicao(String nomeCampus , int pos){
 		CampusModel CampusModelSeg = new CampusModel(nomeCampus);
-		if (pos == 1) {
-			AdicionaInicio(nomeCampus);
-		} else {
-			CampusModel aux = inicio;
-			int count = 1;
-			while (aux.getProx() != null && count < pos - 1) {
-				aux = aux.getProx();
-				count++;
-			}
-			if (count == pos - 1) {
-				aux.setProx(CampusModelSeg);
-			} else {
-				System.out.println("Posi��o Inv�lida!");
-			}
-		}
+    if(pos==1){           
+        AdicionaInicio(nomeCampus);
+    }
+    else{       
+        CampusModel aux=inicio;
+        int count=1;
+        while(aux.getProx()!=null && count<pos-1){
+            aux=aux.getProx();
+            count++;
+        }
+        if(count==pos-1){
+            aux.setProx(CampusModelSeg);
+        }
+        else{
+            System.out.println("Posi��o Inv�lida!");
+        }            
+    	}
 	}
 
 	public String RemoveInicio() {
@@ -148,11 +149,12 @@ public class ListaCampusController {
 
 		}
 		return lista;
-	}
-
-	// realiza a intercala�ao dos vetore para organiza��o
-	public static void intercalar(String lista[], int inicioA, int fimA, int inicioB, int fimB) {
-		int i1 = inicioA;
+	}	
+	
+	//realiza a intercala�ao dos vetore para organiza��o
+	public static void intercalar(String lista[], int inicioA, int fimA,
+			int inicioB, int fimB){
+		int i1 = inicioA; 
 		int i2 = inicioB;
 		int iaux = inicioA;
 		String aux[] = new String[lista.length];
