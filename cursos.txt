@@ -1,10 +1,8 @@
-Nao Sei Ainda;2;3;4
-fernando;1;2;3
-woo;32;2;40
-jabuticaba;1;2;3
-logistica;2;20;15
-ads;3;8;40
-naoseiainda;4;5;6
-testandoapenas;1;2;3
-teste;12;15;40
-Analise de Dados;2;3;4
+Analise e Desenvolvimento de Sistemas;3;6;40
+Automacao Industrial;2;7;39
+Banco de Dados;2;8;40
+Ciencia de Dados;2;8;42
+Construcao Civil;1;7;40
+Logistica;2;8;40
+Microeletronica;3;6;39
+Processos Quimicos;3;6;35

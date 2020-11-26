@@ -131,7 +131,6 @@ public class ListaCursosController {
             System.out.println("Ops, a lista está vazia!");
         } else {
             CursoModel aux = inicio;
-            String cursos = "";
             int contador = 1;
             while (aux != null) {
                 System.out.println(contador + "- " + aux.getNomeDoCurso());
@@ -149,9 +148,10 @@ public class ListaCursosController {
         }
         if ((busca != null) && (busca.getNomeDoCurso().compareToIgnoreCase(curso) == 0))
             return busca;
-        else
+        else{
             System.out.println("Curso inexistente ou digitado incorretamente!");
-        return null;
+            return null;
+        }
     }
 
 

@@ -74,6 +74,7 @@ public class ManipuladorArquivoController {
 			bw.append(vet[i]+ "\n");
 		}
 		bw.close();
+		bw2.close();
 	}
 
 	public ListaCursosController lerCursos() throws IOException {
